@@ -1,3 +1,15 @@
+# spec/spec_helper.rb
+
+# Require all the Ruby files that contain the classes used in your tests
+require_relative '../app/models/item'
+require_relative '../app/models/order'
+require_relative '../app/customer'
+require_relative '../app/services/order_processor'
+require_relative '../app/services/discount_calculator'
+require_relative '../app/services/payment_processor'
+require_relative '../app/services/shipping_service'
+
+# Configure RSpec
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
