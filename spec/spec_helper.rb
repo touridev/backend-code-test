@@ -6,8 +6,8 @@ require_relative '../app/models/order'
 require_relative '../app/customer'
 require_relative '../app/services/order_processor'
 require_relative '../app/services/discount_calculator'
-require_relative '../app/services/payment_processor'
-require_relative '../app/services/shipping_service'
+# require_relative '../app/services/payment_processor'
+# require_relative '../app/services/shipping_service'
 
 # Configure RSpec
 RSpec.configure do |config|
