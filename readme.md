@@ -36,15 +36,11 @@ gem install bundler
 
 📥 Installation
 
-Clone the repository to your local machine:
-
-git clone https://github.com/your-username/checkout-system.git
-
+git clone https://github.com/touridev/backend-code-test.git
 
 Navigate into the project folder:
 
-cd checkout-system
-
+cd backend-code-test
 
 Install the project dependencies using Bundler:
 
