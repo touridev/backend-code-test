@@ -14,20 +14,24 @@ class Checkout
     total = 0
 
     basket.inject(Hash.new(0)) { |items, item| items[item] += 1; items }.each do |item, count|
-      if item == :apple || item == :pear
-        if (count % 2 == 0)
-          total += prices.fetch(item) * (count / 2)
-        else
-          total += prices.fetch(item) * count
-        end
-      elsif item == :banana || item == :pineapple
+      case item
+      when :apple, :pear
+        # Two for one offer on apples and pears
+        total += prices.fetch(item) * (count / 2) + prices.fetch(item) * (count % 2)
+      when :banana, :pineapple
+        # Half price offer on bananas and pineapples
         if item == :pineapple
           total += (prices.fetch(item) / 2)
-          total += (prices.fetch(item)) * (count - 1)
+          total += prices.fetch(item) * (count - 1)
         else
           total += (prices.fetch(item) / 2) * count
         end
+      when :mango
+        # Buy 3, get 1 free on mangoes
+        free_mangos = count / 4  # for every 4 mangoes, 1 is free
+        total += prices.fetch(item) * (count - free_mangos)
       else
+        # Regular items, no discount
         total += prices.fetch(item) * count
       end
     end
@@ -38,6 +42,6 @@ class Checkout
   private
 
   def basket
-    @basket ||= Array.new
+    @basket ||= []
   end
 end
